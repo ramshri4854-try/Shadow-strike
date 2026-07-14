@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shadow Strike</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <script src="https://cdn.babylonjs.com/babylon.js"></script>
+</head>
+
+<body>
+
+<canvas id="renderCanvas"></canvas>
+
+<script src="js/game.js"></script>
+
+</body>
+</html>html,body{
+margin:0;
+width:100%;
+height:100%;
+overflow:hidden;
+}
+
+#renderCanvas{
+width:100%;
+height:100%;
+touch-action:none;
+display:block;
+}const canvas = document.getElementById("renderCanvas");
+
+const engine = new BABYLON.Engine(canvas,true);
+
+const createScene = ()=>{
+
+const scene = new BABYLON.Scene(engine);
+
+const camera = new BABYLON.FreeCamera("camera",
+new BABYLON.Vector3(0,5,-10),
+scene);
+
+camera.setTarget(BABYLON.Vector3.Zero());
+
+camera.attachControl(canvas,true);
+
+const light = new BABYLON.HemisphericLight(
+"light",
+new BABYLON.Vector3(0,1,0),
+scene);
+
+BABYLON.MeshBuilder.CreateGround("ground",
+{width:100,height:100},
+scene);
+
+return scene;
+
+}
+
+const scene=createScene();
+
+engine.runRenderLoop(()=>{
+scene.render();
+});
+
+window.addEventListener("resize",()=>{
+engine.resize();
+});Shadow Strike is an original 3D multiplayer battle royale web game built for modern browsers. It features multiple game modes including Battle Royale, Team Deathmatch, Clash Squad, Sniper Arena, and Gun Game. The project uses original characters, maps, weapons, UI, and branding to deliver a unique gaming experience on both mobile and desktop devices.
+
+Key Features:
+• Original 3D Maps
+• Battle Royale Mode
+• Team Deathmatch
+• Clash Squad
+• Sniper Arena
+• Gun Game
+• AI Bots
+• Multiplayer Support
+• Dynamic Safe Zone
+• Loot System
+• Vehicles
+• Character & Weapon Customization
+• Cross-Platform (Mobile & PC)
+• Built with Babylon.js, Node.js, HTML5, CSS3, and JavaScript
+
+Development Status:
+Currently under active development.
